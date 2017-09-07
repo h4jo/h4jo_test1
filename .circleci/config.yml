@@ -30,4 +30,11 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-          
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -u hsimons -p 1991evev
+      - docker push circleci/h4jo_test1
+
