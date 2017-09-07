@@ -24,15 +24,15 @@ jobs:
           path: test-reports
           destination: test-reports
 
-    dependencies:
-      override:
-        - docker info
-        - docker build --rm=false -t h4jo_test1 .
+      - dependencies:
+          override:
+            - docker info
+            - docker build --rm=false -t h4jo_test1 .
 
-    deployment:
-      hub:
-        branch: master
-        commands:
-          - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          - docker push h4jo_test1
+      - deployment:
+          hub:
+            branch: master
+            commands:
+              - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+              - docker push h4jo_test1
 
