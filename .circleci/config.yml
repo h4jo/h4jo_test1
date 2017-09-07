@@ -25,11 +25,11 @@ jobs:
             pwd
             cat ./main.py
             docker --version
-#     - run:
-#         name: build docker image
-#         command: |
-#           docker build -t trivago/trash:circle .
+      - run:
+          name: build docker image
+          command: |
+            docker build -t trivago/trash:circle .
 
-#     - store_artifacts:
-#         path: test-reports
-#         destination: test-reports
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
