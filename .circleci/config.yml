@@ -11,8 +11,7 @@ machine:
 jobs:
   build:
     docker:
-#      - image: circleci/python:3.6.1
-      - image: docker:17.05.0-ce-git
+      - image: docker:dind
 
     working_directory: ~/repo
 
@@ -25,12 +24,12 @@ jobs:
             env
             pwd
             cat ./main.py
-      - run:
-          name: build docker image
-          command: |
-            docker build -t trivago/trash:circle .
+            docker --version
+#     - run:
+#         name: build docker image
+#         command: |
+#           docker build -t trivago/trash:circle .
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
+#     - store_artifacts:
+#         path: test-reports
+#         destination: test-reports
