@@ -24,15 +24,10 @@ jobs:
           path: test-reports
           destination: test-reports
 
-      - push_docker:
-            name: push to dockerhub
-            command: |
-                echo "where is da forking docker image"
-
-deployment:
-  hub:
-    branch: master
-    commands:
-      - docker login -u hsimons -p 1991evev
-      - docker push circleci/h4jo_test1
+    deployment:
+      hub:
+        branch: master
+        commands:
+          - docker login -u hsimons -p 1991evev
+          - docker push h4jo_test1
 
