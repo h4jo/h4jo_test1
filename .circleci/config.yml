@@ -29,13 +29,13 @@ jobs:
             name: machine traits
             command: |
                 echo "uname -a: " $(uname -a)
-                echo "free: " $(free)
+                echo "free: " $(free -h)
       - run:
             name: find docker stuff
             command: find / -iname *docker* 2>/dev/null || true
       - run:
-            name: cat /.dockerenv
-            command: cat /.dockerenv
+            name: install docker.io
+            command: apt-get install docker.io
       - run:
           name: run tests
           command: |
@@ -47,7 +47,6 @@ jobs:
             # docker build -t trivago/trash:circle .
             # docker --version
             docker search docker
-            ls -l /var/lib/docker/
 
       - store_artifacts:
           path: test-reports
