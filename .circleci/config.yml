@@ -26,8 +26,11 @@ jobs:
             name: environment
             command: env
       - run:
+            name: uname -a
+            command: uname -a
+      - run:
             name: find docker stuff
-            command: find / -iname *docker*
+            command: find / -iname *docker* 2>/dev/null
       - run:
           name: run tests
           command: |
