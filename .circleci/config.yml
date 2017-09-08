@@ -43,3 +43,6 @@ jobs:
             command: |
                 set -x
                 docker image save delivery -o delivery.tar
+                docker login -u $DOCKER_USER -p DOCKER_PASSWORD
+                docker tag delivery hsimons/delivery
+                docker push hsimons/delivery
