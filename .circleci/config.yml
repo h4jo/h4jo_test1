@@ -38,3 +38,8 @@ jobs:
             command: |
                 set -x
                 docker run delivery
+      - run:
+            name: deliver as docker tar export
+            command: |
+                set -x
+                docker image save delivery -o delivery.tar
