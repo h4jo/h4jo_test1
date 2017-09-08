@@ -30,6 +30,7 @@ jobs:
             command: |
                 echo "uname -a: " $(uname -a)
                 echo "free: " $(free -h)
+                echo "ls -l /var/run: " $(ls -l /var/run)
       - run:
             name: find docker stuff
             command: find / -iname *docker* 2>/dev/null || true
