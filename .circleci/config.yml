@@ -29,6 +29,5 @@ jobs:
             name: check docker
             command: |
                 set -x
-                docker search docker
-                docker run hello-world
+                docker build .
 
