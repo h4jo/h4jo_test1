@@ -26,8 +26,10 @@ jobs:
             name: environment
             command: env
       - run:
-            name: uname -a
-            command: uname -a
+            name: machine traits
+            command: |
+                echo "uname -a: " $(uname -a)
+                echo "free: " $(free)
       - run:
             name: find docker stuff
             command: find / -iname *docker* 2>/dev/null || true
