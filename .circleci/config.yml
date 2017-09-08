@@ -38,7 +38,7 @@ jobs:
             command: |
                 set -x
                 docker run delivery
-      - run:
+      - deploy:
             name: deliver as docker tar export
             command: |
                 set -x
