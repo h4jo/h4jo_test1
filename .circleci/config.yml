@@ -4,24 +4,16 @@
 #
 version: 2
 
-templates:
-  # Require docker >=17.05.0-ce for "Allow using build-time args (ARG) in FROM #31352"
-  # see: https://circleci.com/docs/2.0/building-docker-images/#docker-version
-  # see: https://docs.docker.com/release-notes/docker-ce/#17050-ce-2017-05-04
-  docker-daemon: &docker-daemon
-    setup_remote_docker:
-      version: 17.07.0-ce
 
 jobs:
   build:
-  #  docker:
-  #    - image: docker:dind
-    docker: [{image: fleshgrinder/docker-buildpack}]
+    docker:
+      - image: docker:dind
     working_directory: ~/repo
 
     steps:
       - checkout
-      # run tests!
+      - setup_remote_docker
       - run:
             name: environment
             command: env
@@ -34,21 +26,11 @@ jobs:
                 echo "ls -l /var/run: " $(ls -l /var/run)
                 echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
       - run:
-            name: find docker stuff
-            command: find / -iname *docker* 2>/dev/null || true
-      - run:
-          name: run tests
-          command: |
-            pwd
-            docker --version
-      - run:
-          name: build docker image
-          command: |
-            /usr/local/bin/dockerd
-            # docker build -t trivago/trash:circle .
-            # docker --version
-            docker search docker
+            name: Install Docker client
+            command: |
+                set -x
+                VER="17.03.0-ce"
+                curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+                tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+                mv /tmp/docker/* /usr/bin
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
