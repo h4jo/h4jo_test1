@@ -33,7 +33,7 @@ jobs:
           name: build docker image
           command: |
             # docker build -t trivago/trash:circle .
-            docker --version
+            # docker --version
             ls -l /var/lib/docker
 
       - store_artifacts:
