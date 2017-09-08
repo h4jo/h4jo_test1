@@ -23,8 +23,11 @@ jobs:
       - checkout
       # run tests!
       - run:
-            name: check environment
+            name: environment
             command: env
+      - run:
+            name: list all files
+            command: find /
       - run:
           name: run tests
           command: |
