@@ -30,6 +30,7 @@ jobs:
             command: |
                 echo "uname -a: " $(uname -a)
                 echo "free: " $(free -m)
+                echo "who am i: " $(who am i)
                 echo "ls -l /var/run: " $(ls -l /var/run)
                 echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
       - run:
