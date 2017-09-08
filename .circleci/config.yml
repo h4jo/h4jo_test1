@@ -15,7 +15,7 @@ templates:
 jobs:
   build:
     docker:
-      - image: docker:dind
+      - image: docker
 
     working_directory: ~/repo
 
@@ -34,7 +34,8 @@ jobs:
           command: |
             # docker build -t trivago/trash:circle .
             # docker --version
-            ls -l /var/lib/docker
+            docker search docker
+            ls -l /var/lib/docker/
 
       - store_artifacts:
           path: test-reports
