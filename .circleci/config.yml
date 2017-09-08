@@ -30,7 +30,7 @@ jobs:
             command: uname -a
       - run:
             name: find docker stuff
-            command: find / -iname *docker* 2>/dev/null
+            command: find / -iname *docker* 2>/dev/null || true
       - run:
           name: run tests
           command: |
