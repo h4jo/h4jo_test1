@@ -29,8 +29,9 @@ jobs:
             name: machine traits
             command: |
                 echo "uname -a: " $(uname -a)
-                echo "free: " $(free -h)
+                echo "free: " $(free -m)
                 echo "ls -l /var/run: " $(ls -l /var/run)
+                echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
       - run:
             name: find docker stuff
             command: find / -iname *docker* 2>/dev/null || true
