@@ -12,13 +12,6 @@ templates:
     setup_remote_docker:
       version: 17.07.0-ce
 
-
-
-
-machine:
-  services:
-    - docker
-
 jobs:
   build:
     docker:
