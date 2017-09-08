@@ -8,7 +8,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine
+      - image: ubuntu
     working_directory: ~/repo
 
     steps:
