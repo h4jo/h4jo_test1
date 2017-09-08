@@ -14,9 +14,9 @@ templates:
 
 jobs:
   build:
-    docker:
-      - image: docker:dind
-
+  #  docker:
+  #    - image: docker:dind
+    docker: [{image: fleshgrinder/docker-buildpack}]
     working_directory: ~/repo
 
     steps:
