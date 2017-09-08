@@ -18,6 +18,9 @@ jobs:
             name: environment
             command: env
       - run:
+            name: docker version
+            command: docker --version
+      - run:
             name: machine traits
             command: |
                 echo "uname -a: " $(uname -a)
