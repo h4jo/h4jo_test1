@@ -29,5 +29,5 @@ jobs:
             name: check docker
             command: |
                 set -x
-                docker --version
+                docker search docker
 
