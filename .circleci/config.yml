@@ -22,7 +22,9 @@ jobs:
     steps:
       - checkout
       # run tests!
-      - run:
+      - run check env
+          name: check environment
+          command: env
           name: run tests
           command: |
             env
