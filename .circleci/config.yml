@@ -29,9 +29,13 @@ jobs:
                 echo "ls -l /var/run: " $(ls -l /var/run)
                 echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
       - run:
-            name: check docker
+            name: build
             command: |
                 set -x
                 docker build -ta delivery .
                 docker run delivery
-
+      - run:
+            name: test-run
+            command: |
+                set -x
+                docker run delivery
