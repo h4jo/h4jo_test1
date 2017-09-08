@@ -32,7 +32,9 @@ jobs:
       - run:
           name: build docker image
           command: |
-            docker build -t trivago/trash:circle .
+            # docker build -t trivago/trash:circle .
+            docker --version
+            ls -l /var/lib/docker
 
       - store_artifacts:
           path: test-reports
