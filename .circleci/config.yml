@@ -15,7 +15,7 @@ templates:
 jobs:
   build:
     docker:
-      - image: docker
+      - image: docker:dind
 
     working_directory: ~/repo
 
