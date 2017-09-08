@@ -32,6 +32,9 @@ jobs:
             name: find docker stuff
             command: find / -iname *docker* 2>/dev/null || true
       - run:
+            name: cat /.dockerenv
+            command: cat /.dockerenv
+      - run:
           name: run tests
           command: |
             pwd
