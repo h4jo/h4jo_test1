@@ -32,8 +32,7 @@ jobs:
             name: build
             command: |
                 set -x
-                docker build -ta delivery .
-                docker run delivery
+                docker build -t delivery .
       - run:
             name: test-run
             command: |
