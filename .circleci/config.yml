@@ -26,8 +26,8 @@ jobs:
             name: environment
             command: env
       - run:
-            name: list all files
-            command: find /
+            name: find docker stuff
+            command: find / -iname *docker*
       - run:
           name: run tests
           command: |
