@@ -4,6 +4,13 @@
 #
 version: 2
 
+templates:
+  # Require docker >=17.05.0-ce for "Allow using build-time args (ARG) in FROM #31352"
+  # see: https://circleci.com/docs/2.0/building-docker-images/#docker-version
+  # see: https://docs.docker.com/release-notes/docker-ce/#17050-ce-2017-05-04
+  docker-daemon: &docker-daemon
+    setup_remote_docker:
+      version: 17.07.0-ce
 
 jobs:
   build:
@@ -14,6 +21,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+        - version: 17.07.0-ce
       - run:
             name: environment
             command: env
