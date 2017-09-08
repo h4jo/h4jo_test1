@@ -23,14 +23,12 @@ jobs:
       - checkout
       # run tests!
       - run:
-          name: check machine
             name: check environment
             command: env
+      - run:
           name: run tests
           command: |
-            env
             pwd
-            cat ./main.py
             docker --version
       - run:
           name: build docker image
