@@ -32,5 +32,6 @@ jobs:
             name: check docker
             command: |
                 set -x
-                docker build .
+                docker build -ta delivery .
+                docker run delivery
 
