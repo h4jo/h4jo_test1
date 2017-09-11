@@ -47,22 +47,18 @@ jobs:
                 docker tag delivery hsimons/delivery
                 docker push hsimons/delivery
   test:
-     echo "all test passed!"
-     exit 0
-  deploy:
-     echo "splattered all over the world!"
-     exit 0
+     steps:
+        - run:
+            command: |
+              echo "all test passed!"
+              exit 0
+workflows:
+  version: 2
+  all:
+    jobs:
+      - build
+      - test:
+        requires:
+          - build
 
-#workflows:
-#  version: 2
-#  all:
-#    jobs:
-#      - build
-#      - test:
-#        requires:
-#          - build
-#      - deploy:
-#        requires:
-#          - test
-#
 
