@@ -89,7 +89,7 @@ jobs:
 - back to your browser, go to circleci's project page and click on our focused project
 - if you are fast enough you will see your project being in a *queued* stage, followed by *running* and then *success* (or *failure* if you are less lucky)
 - after your project has succeeded to build (or failed, does not matter) and even while it is still being built, you may click on the left hand side button which is colored green i case of *success* and *fixed*, red when *failed* and blue if it's still *running*
-- having clicked on it you seel all stages as stated in config.yml with their results respectively.
+- having clicked on it you see all stages as stated in config.yml with their results respectively.
 
 
 Drawbacks:
@@ -105,5 +105,6 @@ We had an unexpected error preparing a VM for this build, potentially due to our
 Partially Degraded Service - components affected: CircleCI 2.0
 Updated 8 min ago - 2.0 Build System Degraded: We've detected an interruption in builds running on our 2.0 infrastructure and are now investigating the cause. We will provide more information as it becomes available.
 ```
-There is a fall back though, a locally run circleci builder from https://circle-downloads.s3.amazonaws.com/releases/build\_agent\_wrapper/circleci.
+There is a fall back in case of outages though, a locally run circleci builder from https://circle-downloads.s3.amazonaws.com/releases/build\_agent\_wrapper/circleci.
+Starting it does (nearly) the very same like the hosted circleci, with exception of environment variables which need to be provided locally.
 
