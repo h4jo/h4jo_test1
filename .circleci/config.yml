@@ -28,6 +28,7 @@ jobs:
                 echo "whoami: " $(whoami)
                 echo "ls -l /var/run: " $(ls -l /var/run)
                 echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
+                exit 1
       - run:
             name: build
             command: |
