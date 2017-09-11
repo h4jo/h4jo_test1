@@ -46,14 +46,23 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
             docker tag delivery hsimons/delivery
             docker push hsimons/delivery
-  test:
+  test1:
      docker:
        - image: docker
      working_directory: ~/anydir
      steps:
        - run:
            command: |
-             echo "all test passed!"
+             echo "test1 passed!"
+             exit 0
+  test2:
+     docker:
+       - image: docker
+     working_directory: ~/anydir
+     steps:
+       - run:
+           command: |
+             echo "test2 passed!"
              exit 0
   deploy:
      docker:
@@ -69,10 +78,14 @@ workflows:
   all:
     jobs:
       - build
-      - test:
+      - test1:
+          requires:
+            - build
+      - test2:
           requires:
             - build
       - deploy:
           requires:
-            - test
+            - test1
+            - test2
 
