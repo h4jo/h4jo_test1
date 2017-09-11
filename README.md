@@ -105,3 +105,5 @@ We had an unexpected error preparing a VM for this build, potentially due to our
 Partially Degraded Service - components affected: CircleCI 2.0
 Updated 8 min ago - 2.0 Build System Degraded: We've detected an interruption in builds running on our 2.0 infrastructure and are now investigating the cause. We will provide more information as it becomes available.
 ```
+There is a fall back though, a locally run circleci builder from https://circle-downloads.s3.amazonaws.com/releases/build\_agent\_wrapper/circleci.
+
