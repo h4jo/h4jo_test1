@@ -55,12 +55,12 @@ jobs:
            command: |
              echo "all test passed!"
              exit 0
-workflows:
-  version: 2
-  all:
-    jobs:
-      - build
-      - test:
-        requires:
-          - build
-
+#workflows:
+#  version: 2
+#  all:
+#    jobs:
+#      - build
+#      - test:
+#        requires:
+#          - build
+#
