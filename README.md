@@ -93,6 +93,7 @@ jobs:
 
 
 Drawbacks:
+On 8th of September we had a downtime of at least 2h.
 ```
 Allocating a remote Docker Engine
 Assigned Docker Engine request id: 1284162
