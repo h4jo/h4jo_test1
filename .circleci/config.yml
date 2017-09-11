@@ -55,8 +55,6 @@ workflows:
     jobs:
       - build
       - test
-  harvest_and_smoke:
-    requires: build_and_test
-    jobs:
-        - harvest:
-        - smoke:
+            requires: build
+      - deploy:
+            requires: test
