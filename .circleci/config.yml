@@ -13,48 +13,48 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-            version: 17.05.0-ce
+          version: 17.05.0-ce
       - run:
-            name: environment
-            command: env
+          name: environment
+          command: env
       - run:
-            name: docker version
-            command: docker --version
+          name: docker version
+          command: docker --version
       - run:
-            name: machine traits
-            command: |
-                echo "uname -a: " $(uname -a)
-                echo "free: " $(free -m)
-                echo "whoami: " $(whoami)
-                echo "ls -l /var/run: " $(ls -l /var/run)
-                echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
+          name: machine traits
+          command: |
+            echo "uname -a: " $(uname -a)
+            echo "free: " $(free -m)
+            echo "whoami: " $(whoami)
+            echo "ls -l /var/run: " $(ls -l /var/run)
+            echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
       - run:
-            name: build
-            command: |
-                set -x
-                docker build -t delivery .
+          name: build
+          command: |
+            set -x
+            docker build -t delivery .
       - run:
-            name: test-run
-            command: |
-                set -x
-                docker run delivery
+          name: test-run
+          command: |
+            set -x
+            docker run delivery
       - deploy:
-            name: deliver as docker tar export
-            command: |
-                set -x
-                docker image save delivery -o delivery.tar
-                docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-                docker tag delivery hsimons/delivery
-                docker push hsimons/delivery
+          name: deliver as docker tar export
+          command: |
+            set -x
+            docker image save delivery -o delivery.tar
+            docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+            docker tag delivery hsimons/delivery
+            docker push hsimons/delivery
   test:
      docker:
        - image: docker
      working_directory: ~/anydir
      steps:
-        - run:
-            command: |
-              echo "all test passed!"
-              exit 0
+       - run:
+           command: |
+             echo "all test passed!"
+             exit 0
 workflows:
   version: 2
   all:
@@ -63,5 +63,4 @@ workflows:
       - test:
         requires:
           - build
-
 
