@@ -87,4 +87,4 @@ jobs:
 
 - on your local machine git commit and push to your project on github
 - back to your browser, go to circleci's project page
-- if you are fast enough 
+- if you are fast enough you will see yout project bein in a *queued* stage, followed by *running* and then *success* (or *failure* if you are less lucky)
