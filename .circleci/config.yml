@@ -64,14 +64,32 @@ jobs:
            command: |
              echo "test2 passed!"
              exit 0
-  deploy:
+  test3:
      docker:
        - image: docker
      working_directory: ~/anydir
      steps:
        - run:
            command: |
-             echo "splattered all over the servers!"
+             echo "test3 passed!"
+             exit 0
+  deploy stage:
+     docker:
+       - image: docker
+     working_directory: ~/anydir
+     steps:
+       - run:
+           command: |
+             echo "splattered all over the stage servers!"
+             exit 0
+  deploy live:
+     docker:
+       - image: docker
+     working_directory: ~/anydir
+     steps:
+       - run:
+           command: |
+             echo "splattered all over the world!"
              exit 0
 workflows:
   version: 2
@@ -84,8 +102,12 @@ workflows:
       - test2:
           requires:
             - build
-      - deploy:
+      - deploy stage:
           requires:
             - test1
             - test2
+      - deploy live:
+          requires:
+            - deploy stage
+            - test3
 
