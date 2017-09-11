@@ -46,12 +46,12 @@ jobs:
                 docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
                 docker tag delivery hsimons/delivery
                 docker push hsimons/delivery
-    test:
-       echo "all test passed!"
-       exit 0
-    deploy:
-       echo "splattered all over the world!"
-       exit 0
+  test:
+     echo "all test passed!"
+     exit 0
+  deploy:
+     echo "splattered all over the world!"
+     exit 0
 
 workflows:
   version: 2
