@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export DOCKER_PASSWORD=1991evev
+export DOCKER_USER=hsimons
+export CI_LOCAL=true
+
+circleci -e DOCKER_PASSWORD=$DOCKER_PASSWORD -e DOCKER_USER=$DOCKER_USER build
