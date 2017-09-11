@@ -55,6 +55,15 @@ jobs:
            command: |
              echo "all test passed!"
              exit 0
+  deploy:
+     docker:
+       - image: docker
+     working_directory: ~/anydir
+     steps:
+       - run:
+           command: |
+             echo "splattered all over the servers!"
+             exit 0
 workflows:
   version: 2
   all:
@@ -63,4 +72,7 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
 
