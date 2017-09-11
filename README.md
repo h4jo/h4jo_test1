@@ -86,5 +86,7 @@ jobs:
 ```
 
 - on your local machine git commit and push to your project on github
-- back to your browser, go to circleci's project page
-- if you are fast enough you will see yout project bein in a *queued* stage, followed by *running* and then *success* (or *failure* if you are less lucky)
+- back to your browser, go to circleci's project page and click on our focused project
+- if you are fast enough you will see your project being in a *queued* stage, followed by *running* and then *success* (or *failure* if you are less lucky)
+- after your project has succeeded to build (or failed, does not matter) and even while it is still being built, you may click on the left hand side button which is colored green i case of *success* and *fixed*, red when *failed* and blue if it's still *running*
+- having clicked on it you seel all stages as stated in config.yml with their results respectively.
