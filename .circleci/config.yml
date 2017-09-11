@@ -106,8 +106,8 @@ workflows:
           requires:
             - test1
             - test2
-#      - deploy live:
-#          requires:
-#            - deploy stage
-#            - test3
+      - deploy live:
+          requires:
+            - deploy stage
+            - test3
 
