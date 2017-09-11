@@ -28,7 +28,6 @@ jobs:
                 echo "whoami: " $(whoami)
                 echo "ls -l /var/run: " $(ls -l /var/run)
                 echo "ls -l /etc/init.d/: " $(ls -l /etc/init.d/)
-                exit 1
       - run:
             name: build
             command: |
@@ -47,6 +46,8 @@ jobs:
                 docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
                 docker tag delivery hsimons/delivery
                 docker push hsimons/delivery
+    test:
+       exit 1
 
 workflows:
   version: 2
