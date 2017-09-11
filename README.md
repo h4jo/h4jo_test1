@@ -6,17 +6,18 @@ compile a golang hello-world in a docker machine and deliver the product embedde
 
 ### Steps
 - create accounts for circleci, github
-- on github: create an empty project on github having the following 2 files in it's root
-	- app.go:
-```
+- on github: create an empty project on github having the following 2 files, app.go and Dockerfile in it's root
+```golang
+// app.go
 package main
 import "fmt"
 func main() {
     fmt.Println("hello 2 da world and such")
 }
 ```
-	- Dockerfile:
+
 ```
+# Dockerfile
 FROM golang as builder
 WORKDIR /build
 COPY app.go    .
@@ -30,8 +31,9 @@ CMD ["./app"]
 - in circleci: in project section find and press button "add" (project)
 - (hopefully) recognize your recently created project on github in the list that circleci now presents to you
 - click it, go through guided setup, default settings are ok
-- paste the yaml template that circleci displays (as a result of step 5) and put it into your project_folder/.circleci/config.yml
-- replace the config.yml by this: '''
+- paste the yaml template that circleci displays (as a result of step 5) and put it into your (local) project_folder/.circleci/config.yml
+- the above was just an exercize - replace that config.yml by this (:
+```Yaml
 # Python CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
@@ -81,4 +83,8 @@ jobs:
                 docker tag delivery hsimons/delivery
                 docker push hsimons/delivery
 
-'''
+```
+
+- on your local machine git commit and push to your project on github
+- back to your browser, go to circleci's project page
+- if you are fast enough 
