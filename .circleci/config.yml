@@ -102,11 +102,15 @@ workflows:
       - test2:
           requires:
             - build
+      - test3:
+          requires:
+            - build
       - deploy stage:
           requires:
             - test1
             - test2
       - deploy live:
           requires:
-            - test1
+            - test3
+            - deploy stage
 
