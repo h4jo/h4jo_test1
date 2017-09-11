@@ -47,14 +47,15 @@ jobs:
                 docker tag delivery hsimons/delivery
                 docker push hsimons/delivery
     test:
+       requires: build
        exit 1
 
-workflows:
-  version: 2
-  all:
-    jobs:
-      - build
-      - test:
-            requires: build
-      - deploy:
-            requires: test
+#workflows:
+#  version: 2
+#  all:
+#    jobs:
+#      - build
+#      - test:
+#            requires: build
+#      - deploy:
+#            requires: test
