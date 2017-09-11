@@ -111,6 +111,6 @@ workflows:
             - test2
       - deploy live:
           requires:
-            - tesxt
+            - test3
             - deploy stage
 
