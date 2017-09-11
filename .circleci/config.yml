@@ -55,5 +55,5 @@ workflows:
   all:
     jobs:
       - build
-      - test
+      - testomania
       - deploy
