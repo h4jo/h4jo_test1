@@ -108,6 +108,5 @@ workflows:
             - test2
       - deploy live:
           requires:
-            - deploy stage
             - test3
 
