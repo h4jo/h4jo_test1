@@ -109,8 +109,13 @@ workflows:
           requires:
             - test1
             - test2
+      - hold:
+          type: approval
+          requires:
+            - test1
       - deploy live:
           requires:
             - test3
             - deploy stage
+            - hold
 
